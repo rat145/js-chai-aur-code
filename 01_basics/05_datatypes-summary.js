@@ -23,3 +23,7 @@ const myObj = {
 const myFunction = function() {
     console.log("Hello world")
 }
+
+// ********* STACK & HEAP MEMORY ***********
+// stack (primitive) & heap (non-primitive)
+
