@@ -27,3 +27,20 @@ const myFunction = function() {
 // ********* STACK & HEAP MEMORY ***********
 // stack (primitive) & heap (non-primitive)
 
+let youtuberName = "hitesh choudhary"
+let anotherName = youtuberName
+anotherName = "hitesh"
+
+console.log(youtuberName)
+console.log(anotherName)
+
+let newObj = {
+    name: "rat",
+    age: 20
+}
+
+let anotherObj = newObj
+anotherObj.name = "Ratan"
+
+console.log(newObj)
+console.log(anotherObj)
