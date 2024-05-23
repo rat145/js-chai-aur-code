@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer</title>
+    <style>
+        h1, h3 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 600;
+        }
+        section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .box-container {
+            display: flex;
+            flex-direction: row;
+            column-gap: 20px;
+        }
+        .box {
+            border: 3px solid #000;
+            width: 200px;
+            height: 200px;
+        }
+        #box1 {
+            background-color: #ff0000;
+        }
+        #box2 {
+            background-color: #00ffff;
+        }
+        #box3 {
+            background-color: #b7ff00;
+        }
+        #box4 {
+            background-color: #005eff;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Color Scheme Switcher</h1>
+        <div class="box-container">
+            <div class="box" id="box1" onclick="changeBgColor1()"></div>
+            <div class="box" id="box2" onclick="changeBgColor2()"></div>
+            <div class="box" id="box3" onclick="changeBgColor3()"></div>
+            <div class="box" id="box4" onclick="changeBgColor4()"></div>
+        </div>
+        <h3>Try clicking on one of the colors above to change the background color of this page!</h3>
+    </section>
+</body>
+<script>
+    function changeBgColor1() {
+        const box1 = document.getElementById("box1");
+        const computed_style = window.getComputedStyle(box1);
+        const bgcolor = computed_style.backgroundColor;
+        document.body.style.backgroundColor = `${bgcolor}`;
+    }
+    function changeBgColor2() {
+        const box2 = document.getElementById("box2");
+        const computed_style = window.getComputedStyle(box2);
+        const bgcolor = computed_style.backgroundColor;
+        document.body.style.backgroundColor = `${bgcolor}`;
+    }
+    function changeBgColor3() {
+        const box3 = document.getElementById("box3");
+        const computed_style = window.getComputedStyle(box3);
+        const bgcolor = computed_style.backgroundColor;
+        document.body.style.backgroundColor = `${bgcolor}`;
+    }
+    function changeBgColor4() {
+        const box4 = document.getElementById("box4");
+        const computed_style = window.getComputedStyle(box4);
+        const bgcolor = computed_style.backgroundColor;
+        document.body.style.backgroundColor = `${bgcolor}`;
+    }
+</script>
+</html>
