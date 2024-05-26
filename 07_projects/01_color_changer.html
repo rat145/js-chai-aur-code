@@ -14,66 +14,66 @@
             flex-direction: column;
             align-items: center;
         }
-        .box-container {
+        .button-container {
             display: flex;
             flex-direction: row;
             column-gap: 20px;
         }
-        .box {
+        .button {
             border: 3px solid #000;
             width: 200px;
             height: 200px;
         }
-        #box1 {
-            background-color: #ff0000;
+        #grey {
+            background-color: grey;
         }
-        #box2 {
-            background-color: #00ffff;
+        #white {
+            background-color: white;
         }
-        #box3 {
-            background-color: #b7ff00;
+        #blue {
+            background-color: blue;
         }
-        #box4 {
-            background-color: #005eff;
+        #yellow {
+            background-color: yellow;
         }
     </style>
 </head>
 <body>
     <section>
         <h1>Color Scheme Switcher</h1>
-        <div class="box-container">
-            <div class="box" id="box1" onclick="changeBgColor1()"></div>
-            <div class="box" id="box2" onclick="changeBgColor2()"></div>
-            <div class="box" id="box3" onclick="changeBgColor3()"></div>
-            <div class="box" id="box4" onclick="changeBgColor4()"></div>
+        <div class="button-container">
+            <div class="button" id="grey"></div>
+            <div class="button" id="white"></div>
+            <div class="button" id="blue"></div>
+            <div class="button" id="yellow"></div>
         </div>
         <h3>Try clicking on one of the colors above to change the background color of this page!</h3>
     </section>
 </body>
 <script>
-    function changeBgColor1() {
-        const box1 = document.getElementById("box1");
-        const computed_style = window.getComputedStyle(box1);
-        const bgcolor = computed_style.backgroundColor;
-        document.body.style.backgroundColor = `${bgcolor}`;
-    }
-    function changeBgColor2() {
-        const box2 = document.getElementById("box2");
-        const computed_style = window.getComputedStyle(box2);
-        const bgcolor = computed_style.backgroundColor;
-        document.body.style.backgroundColor = `${bgcolor}`;
-    }
-    function changeBgColor3() {
-        const box3 = document.getElementById("box3");
-        const computed_style = window.getComputedStyle(box3);
-        const bgcolor = computed_style.backgroundColor;
-        document.body.style.backgroundColor = `${bgcolor}`;
-    }
-    function changeBgColor4() {
-        const box4 = document.getElementById("box4");
-        const computed_style = window.getComputedStyle(box4);
-        const bgcolor = computed_style.backgroundColor;
-        document.body.style.backgroundColor = `${bgcolor}`;
-    }
+    const body = document.querySelector("body");
+    const buttons = document.querySelectorAll(".button");
+    
+    buttons.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            switch (e.target.id) {
+                case "grey":
+                    body.style.backgroundColor = "grey";
+                    break;
+                case "white":
+                    body.style.backgroundColor = "white";
+                    break;
+                case "blue":
+                    body.style.backgroundColor = "blue";
+                    break;
+                case "yellow":
+                    body.style.backgroundColor = "yellow";
+                    break;
+            
+                default:
+                    break;
+            }
+        })
+    });
 </script>
 </html>
