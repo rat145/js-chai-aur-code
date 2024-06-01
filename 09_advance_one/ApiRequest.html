@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML Http Requests</title>
+    <style>
+        body {
+            background-color: #212121;
+            color: #fff;
+        }
+        section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    0 UNSENT: Client has been created. open() not called yet.
+    1 OPENED: open() has been called.
+    2 HEADERS_RECEIVED: send() has been called, and headers and status are available.
+    3 LOADING: Downloading; responseText holds partial data.
+    4 DONE: The operation is complete.
+    -->
+    <section>
+        <div></div>
+    </section>
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary';
+    const xhr = new XMLHttpRequest();
+    let pfpUrl;
+    let followers;
+
+    xhr.open('GET', requestUrl);
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText);  // responseText is a string
+            pfpUrl = data.avatar_url;
+            followers = data.followers;
+            console.log(pfpUrl, followers);
+
+            // display pfp and followers
+            const img = document.createElement("img");
+            const p = document.createElement("p");
+            img.setAttribute("src", pfpUrl);
+            img.setAttribute("height", "100px");
+            img.setAttribute("width", "100px");
+            img.style.borderRadius = "50%";
+            p.innerText = followers;
+
+            document.querySelector("div").appendChild(img);
+            document.querySelector("div").appendChild(p);
+        }
+    }
+    xhr.send();
+</script>
+</html>
